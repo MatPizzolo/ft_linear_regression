@@ -1,0 +1,20 @@
+*.json
+*.png
+
+# Ignore Python cache files
+__pycache__/
+*.pyc
+
+# Ignore environment-specific settings
+.env
+
+# Ignore the virtual environment directory
+venv/
+django_venv/
+
+# Ignore files created by IDEs/editors
+.vscode/
+*.pyc
+
+# Ignore secrets and sensitive information
+secret_key.txt  # file containing secret key
