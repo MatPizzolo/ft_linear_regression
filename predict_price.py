@@ -13,10 +13,13 @@ def get_theta_values(file_path):
 			return theta0, theta1
 	except FileNotFoundError:
 		print(f"Error: File '{file_path}' not found.")
+		return None, None
 	except json.JSONDecodeError:
 		print(f"Error: Could not decode JSON from file '{file_path}'.")
+		return None, None
 	except ValueError as e:
 		print(f"Error: {e}")
+		return None, None
 
 def ask_input():
 	while True:
@@ -46,6 +49,8 @@ def predict_price(km, theta0, theta1):
 
 def main():
 	theta0, theta1 = get_theta_values("parameters.json")
+	if theta0 is None and theta1 is None:
+		return 1
 	print(f"Theta0: {theta0}, Theta1: {theta1}")
 	kms = ask_input()
 	estimatePrice = predict_price(kms, theta0, theta1)
